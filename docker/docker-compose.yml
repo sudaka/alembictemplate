@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "learnsqlalchemy"
+      POSTGRES_USER: "learner"
+      POSTGRES_PASSWORD: "StrongPassword123"
+      PGDATA: "/home/sergey/projects/alembictemplate/docker/data/pgdata"
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+      - mydata:/home/sergey/projects/alembictemplate/docker/data
+    ports:
+      - "5430:5432"
+volumes:
+  mydata:
